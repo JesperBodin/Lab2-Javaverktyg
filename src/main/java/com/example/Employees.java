@@ -2,12 +2,12 @@ package com.example;
 
 import java.util.List;
 
-public class EmployeeManager {
+public class Employees {
 
 	private final EmployeeRepository employeeRepository;
 	private final BankService bankService;
 
-	public EmployeeManager(EmployeeRepository employeeRepository, BankService bankService) {
+	public Employees(EmployeeRepository employeeRepository, BankService bankService) {
 		this.employeeRepository = employeeRepository;
 		this.bankService = bankService;
 	}
