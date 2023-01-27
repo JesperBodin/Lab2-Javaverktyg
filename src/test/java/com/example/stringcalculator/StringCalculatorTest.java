@@ -9,8 +9,8 @@ class StringCalculatorTest {
 	StringCalculator calculator = new StringCalculator();
 
 	@ParameterizedTest
-	@CsvSource({"'', 0"})
-	void callAddMethodWithEmptyStringReturnZero(String numbers, int expected){
+	@CsvSource({"'', 0", "'1', 1","'1,5', 6"})
+	void callAddMethodWithStringInputReturnExpectedIntValue(String numbers, int expected){
 
 		assertThat(calculator.add(numbers)).isEqualTo(expected);
 	}
