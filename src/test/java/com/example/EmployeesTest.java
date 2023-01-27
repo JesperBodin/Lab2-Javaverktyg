@@ -45,6 +45,4 @@ class EmployeesTest
 	void dontPayEmployeesReturnNotPaidEmployee(){
 		assertFalse(employee1.isPaid());
 	}
-
-
 }
