@@ -40,9 +40,15 @@ class StringCalculatorTest {
 
 	@ParameterizedTest
 	@CsvSource({"'1,1001', 1", "'2,1111', 2", "'5,3500,2324,6', 11"})
-	void numbersBiggerThanThousandShouldBeIgnored(String numbers, int expected){
+	void numbersBiggerThanThousandShouldBeIgnored(String numbers, int expected) {
 		assertThat(calculator.add(numbers)).isEqualTo(expected);
 
+	}
+
+	@ParameterizedTest
+	@CsvSource({"'//[***]\n1***2***3', 6", "'//[%%**&]\n1%%**&2%%**&4', 7"})
+	void anyLengthDelimiterShouldWorkAndReturnExpectedValue(String numbers, int expected) {
+		assertThat(calculator.add(numbers)).isEqualTo(expected);
 	}
 
 }
