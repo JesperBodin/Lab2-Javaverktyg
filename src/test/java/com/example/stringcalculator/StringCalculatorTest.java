@@ -20,5 +20,11 @@ class StringCalculatorTest {
 
 		assertThat(calculator.add(numbers)).isEqualTo(expected);
 	}
+	@ParameterizedTest
+	@CsvSource({"'//;\n1;2', 3", "'//€\n1€2\n3,4€5', 15"})
+	void callAddMethodWithStringAndNewDelimiterReturnExpectedIntValue(String numbers, int expected){
+
+		assertThat(calculator.add(numbers)).isEqualTo(expected);
+	}
 
 }
