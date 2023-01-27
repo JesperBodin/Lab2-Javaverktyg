@@ -14,5 +14,11 @@ class StringCalculatorTest {
 
 		assertThat(calculator.add(numbers)).isEqualTo(expected);
 	}
+	@ParameterizedTest
+	@CsvSource({"'1\n4', 5", "'1\n2,3\n4,5', 15"})
+	void callAddMethodWithStringAndNewLineInputReturnExpectedIntValue(String numbers, int expected){
+
+		assertThat(calculator.add(numbers)).isEqualTo(expected);
+	}
 
 }
