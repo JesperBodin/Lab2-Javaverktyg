@@ -38,4 +38,11 @@ class StringCalculatorTest {
 		assertThatThrownBy(() -> calculator.add(numbers)).isInstanceOf(IllegalArgumentException.class).hasMessage(expected);
 	}
 
+	@ParameterizedTest
+	@CsvSource({"'1,1001', 1", "'2,1111', 2", "'5,3500,2324,6', 11"})
+	void numbersBiggerThanThousandShouldBeIgnored(String numbers, int expected){
+		assertThat(calculator.add(numbers)).isEqualTo(expected);
+
+	}
+
 }
