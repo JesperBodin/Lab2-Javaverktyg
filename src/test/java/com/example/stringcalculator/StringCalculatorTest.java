@@ -9,7 +9,7 @@ class StringCalculatorTest {
 	StringCalculator calculator = new StringCalculator();
 
 	@ParameterizedTest
-	@CsvSource({"'', 0", "'1', 1","'1,5', 6"})
+	@CsvSource({"'', 0", "'1', 1","'1,5', 6", "'1,2,3,4,5', 15"})
 	void callAddMethodWithStringInputReturnExpectedIntValue(String numbers, int expected){
 
 		assertThat(calculator.add(numbers)).isEqualTo(expected);

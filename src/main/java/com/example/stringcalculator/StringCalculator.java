@@ -10,7 +10,6 @@ public class StringCalculator {
 			return 0;
 		if (numbers.length()==1)
 			return parseInt(numbers);
-		int[] numbersSplit = Arrays.stream(numbers.split(",")).mapToInt(Integer::parseInt).toArray();
-		return numbersSplit [0] + numbersSplit [1];
+		return Arrays.stream(numbers.split(",")).mapToInt(Integer::parseInt).sum();
 	}
 }
