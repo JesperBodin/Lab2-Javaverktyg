@@ -23,13 +23,15 @@ public class StringCalculator {
 		numbers = numbers.substring(2);
 		String[] strings = numbers.split("\\n", 2);
 		numbers = strings[1];
+		System.out.println(Arrays.toString(strings));
 		String deli = strings[0];
-		deli = deli.replace("[", "");
-		deli = deli.replace("]", "");
+		deli = deli.replace("[", "(");
+		deli = deli.replace("]", ")");
+		deli = deli.replace(")(", ")|(");
 		if (deli.contains("*"))
 			deli = deli.replace("*", "\\*");
 		int [] numbersArray = Arrays.stream(numbers.
-						split("[,\n]|(" + deli + ")")).
+						split("[,\\n]|" + deli )).
 				mapToInt(Integer::parseInt).toArray();
 		checkNegativeNumbers(numbersArray);
 		return numbersArray;

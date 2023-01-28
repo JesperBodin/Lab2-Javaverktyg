@@ -51,4 +51,9 @@ class StringCalculatorTest {
 		assertThat(calculator.add(numbers)).isEqualTo(expected);
 	}
 
+	@ParameterizedTest
+	@CsvSource({"'//[%][&]\n1%2&3', 6", "'//[*][¤]\n2*4¤6', 12" })
+	void multipleDelimitersShouldReturnExpectedValue(String numbers, int expected){
+		assertThat(calculator.add(numbers)).isEqualTo(expected);
+	}
 }
